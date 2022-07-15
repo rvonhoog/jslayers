@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Layer test</title>
+<style>
+	div {
+		width: 500px;
+		height: 500px;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.base {
+		background-color: #112884;
+		z-index: 0;
+	}
+	.layer1 {
+		background-color: green;
+		z-index: 1;
+	}
+	.layer2 {
+		background-color: pink;
+		z-index: 2;
+	}
+	.hidden {
+		display: none;
+	}
+</style>
+</head>
+<body>
+	<div class='base'></div>
+	<div class='layer1'></div>
+	<div class='layer2'></div>
+	<script>
+		document.querySelector(`.layer1`).addEventListener("click", toggle);
+		document.querySelector(`.layer2`).addEventListener("click", toggle);
+		function toggle(e){
+			console.log('clicked');
+			console.log(e.target);
+			e.target.classList.toggle("hidden");
+		}
+	</script>
+</body>
+</html>
